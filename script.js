@@ -1,4 +1,4 @@
-﻿/* script.js - CineAI Landing Page Interactions */
+/* script.js - Signmanstudio Landing Page Interactions */
 
 // ===== NAVBAR SCROLL =====
 const navbar = document.getElementById('navbar');
@@ -73,62 +73,6 @@ const style = document.createElement('style');
 style.textContent = `.revealed { opacity: 1 !important; transform: translateY(0) !important; }`;
 document.head.appendChild(style);
 
-// ===== APPLY AI SUGGESTION BUTTON =====
-const applyBtn = document.getElementById('btn-apply-suggestion');
-if (applyBtn) {
-  applyBtn.addEventListener('click', () => {
-    applyBtn.textContent = 'กำลังใช้...';
-    applyBtn.style.opacity = '0.7';
-    setTimeout(() => {
-      applyBtn.textContent = 'สำเร็จ ✓';
-      applyBtn.style.background = 'linear-gradient(135deg, #059669, #10b981)';
-      setTimeout(() => {
-        applyBtn.textContent = 'ใช้งาน';
-        applyBtn.style.background = '';
-        applyBtn.style.opacity = '';
-      }, 2000);
-    }, 1000);
-  });
-}
-
-// ===== COUNTER ANIMATION =====
-function animateCounter(el, target, duration = 2000, suffix = '') {
-  const start = Date.now();
-  const startVal = 0;
-  const update = () => {
-    const elapsed = Date.now() - start;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    const current = Math.floor(startVal + (target - startVal) * eased);
-    el.textContent = current.toLocaleString() + suffix;
-    if (progress < 1) requestAnimationFrame(update);
-    else el.textContent = target.toLocaleString() + suffix;
-  };
-  requestAnimationFrame(update);
-}
-
-// Observe stats
-const statsObs = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const nums = entry.target.querySelectorAll('.stat-number');
-      nums.forEach(num => {
-        const text = num.textContent;
-        if (text.includes('2M')) animateCounter(num, 2, 1500, 'M+');
-        if (text.includes('50M')) animateCounter(num, 50, 1500, 'M+');
-        if (text.includes('4.9')) {
-          num.style.transition = 'all 0.5s ease';
-          setTimeout(() => { num.textContent = '4.9 ★'; }, 500);
-        }
-      });
-      statsObs.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.5 });
-
-const heroStats = document.querySelector('.hero-stats');
-if (heroStats) statsObs.observe(heroStats);
-
 // ===== PARALLAX FOR HERO ORBS =====
 document.addEventListener('mousemove', (e) => {
   const x = (e.clientX / window.innerWidth - 0.5) * 20;
@@ -154,20 +98,7 @@ document.querySelectorAll('.play-btn').forEach(btn => {
   });
 });
 
-// ===== PRICING HOVER GLOW =====
-document.querySelectorAll('.pricing-card').forEach(card => {
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    card.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(124,58,237,0.1), rgba(13,17,23,0.8))`;
-  });
-  card.addEventListener('mouseleave', () => {
-    card.style.background = '';
-  });
-});
-
-console.log('%c CineAI Landing Page Loaded!', 'color: #a78bfa; font-size: 16px; font-weight: bold;');
+console.log('%c Signmanstudio Landing Page Loaded!', 'color: #a78bfa; font-size: 16px; font-weight: bold;');
 
 // ===== VIDEO MODAL SYSTEM =====
 // รองรับทั้ง: ไฟล์ MP4/WebM ปกติ และ YouTube
