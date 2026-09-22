@@ -1,0 +1,680 @@
+﻿<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CineAI – ตัดต่อวิดีโอและภาพยนตร์ด้วย AI</title>
+  <meta name="description" content="CineAI แพลตฟอร์ม AI ตัดต่อวิดีโอและภาพยนตร์ระดับมืออาชีพ สร้างสรรค์ผลงานได้ในไม่กี่นาที ด้วยพลังของปัญญาประดิษฐ์" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo" id="nav-logo">
+        <span class="logo-icon"><i data-lucide='hexagon'></i></span>
+        <span>Cine<span class="accent">AI</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#features" class="nav-link">ฟีเจอร์</a></li>
+        <li><a href="#how-it-works" class="nav-link">วิธีใช้งาน</a></li>
+        <li><a href="#service" class="nav-link">บริการ</a></li>
+        <li><a href="#showcase" class="nav-link">ผลงาน</a></li>
+        <li><a href="#pricing" class="nav-link">ราคา</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="#" class="btn-ghost" id="btn-login">เข้าสู่ระบบ</a>
+        <a href="#pricing" class="btn-primary" id="btn-cta-nav">เริ่มฟรี</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-orb orb-1"></div>
+      <div class="hero-orb orb-2"></div>
+      <div class="hero-orb orb-3"></div>
+      <div class="grid-lines"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>ใหม่ล่าสุด — ตัดต่ออัตโนมัติด้วย Generative AI</span>
+      </div>
+      <h1 class="hero-title">
+        ตัดต่อวิดีโอ<br />
+        <span class="gradient-text">ด้วยพลัง AI</span><br />
+        ในไม่กี่วินาที
+      </h1>
+      <p class="hero-subtitle">
+        CineAI แพลตฟอร์มตัดต่อภาพยนตร์ยุคใหม่ที่ขับเคลื่อนด้วยปัญญาประดิษฐ์<br />
+        สร้างสรรค์ผลงานระดับมืออาชีพได้โดยไม่ต้องมีทักษะการตัดต่อ
+      </p>
+      <div class="hero-actions">
+        <a href="#pricing" class="btn-primary btn-large" id="btn-start-free">
+          <span>เริ่มใช้ฟรีทันที</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#showcase" class="btn-glass" id="btn-watch-demo">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><polygon points="10,8 16,12 10,16"/></svg>
+          <span>ดูตัวอย่างผลงาน</span>
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">2M+</span>
+          <span class="stat-label">ผู้ใช้งาน</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">50M+</span>
+          <span class="stat-label">วิดีโอที่สร้างแล้ว</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">4.9 <i data-lucide='star' class='inline-icon'></i></span>
+          <span class="stat-label">คะแนนผู้ใช้</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="editor-mockup">
+        <div class="editor-header">
+          <div class="editor-dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <span class="editor-title">CineAI Studio</span>
+          <span class="editor-tag">AI Processing</span>
+        </div>
+        <div class="editor-body">
+          <div class="editor-preview">
+            <div class="preview-screen">
+              <div class="film-grain"></div>
+              <div class="preview-overlay">
+                <div class="ai-label">
+                  <span class="ai-dot"></span>
+                  AI กำลังวิเคราะห์
+                </div>
+                <div class="scene-detect">
+                  <div class="detect-bar-track"><div class="detect-bar" style="width:78%"></div></div>
+                  <span>ตรวจจับฉาก 78%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="editor-timeline">
+            <div class="timeline-label">Timeline</div>
+            <div class="timeline-tracks">
+              <div class="track track-video">
+                <div class="track-name">Video</div>
+                <div class="track-clips">
+                  <div class="clip clip-1"></div>
+                  <div class="clip clip-2"></div>
+                  <div class="clip clip-3"></div>
+                  <div class="clip clip-active"></div>
+                </div>
+              </div>
+              <div class="track track-audio">
+                <div class="track-name">Audio</div>
+                <div class="track-clips">
+                  <div class="waveform-mini"></div>
+                </div>
+              </div>
+              <div class="track track-fx">
+                <div class="track-name">AI FX</div>
+                <div class="track-clips">
+                  <div class="clip clip-fx-1"></div>
+                  <div class="clip clip-fx-2"></div>
+                </div>
+              </div>
+            </div>
+            <div class="playhead"></div>
+          </div>
+        </div>
+        <div class="editor-tools">
+          <div class="ai-suggestion">
+            <span class="suggestion-icon"><i data-lucide='sparkles'></i></span>
+            <span>AI แนะนำ: เพิ่ม Cinematic Color Grade</span>
+            <button class="suggestion-apply" id="btn-apply-suggestion">ใช้งาน</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator" id="scroll-indicator">
+      <div class="scroll-dot"></div>
+    </div>
+  </section>
+
+  <section class="brands" id="brands">
+    <p class="brands-label">ไว้วางใจโดยสตูดิโอและนักสร้างสรรค์ชั้นนำ</p>
+    <div class="brands-track">
+      <div class="brands-inner" id="brands-inner">
+        <span class="brand-item"><i data-lucide='clapperboard'></i> FilmCraft Studios</span>
+        <span class="brand-item"><i data-lucide='video'></i> Vision Media</span>
+        <span class="brand-item"><i data-lucide='star'></i> StarReel</span>
+        <span class="brand-item"><i data-lucide='film'></i> CinemaLab</span>
+        <span class="brand-item"><i data-lucide='aperture'></i> ArtFrame</span>
+        <span class="brand-item"><i data-lucide='projector'></i> MotionPro</span>
+        <span class="brand-item"><i data-lucide='clapperboard'></i> FilmCraft Studios</span>
+        <span class="brand-item"><i data-lucide='video'></i> Vision Media</span>
+        <span class="brand-item"><i data-lucide='star'></i> StarReel</span>
+        <span class="brand-item"><i data-lucide='film'></i> CinemaLab</span>
+        <span class="brand-item"><i data-lucide='aperture'></i> ArtFrame</span>
+        <span class="brand-item"><i data-lucide='projector'></i> MotionPro</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-badge">ฟีเจอร์หลัก</div>
+        <h2 class="section-title">ทุกสิ่งที่คุณต้องการ<br /><span class="gradient-text">อยู่ในที่เดียว</span></h2>
+        <p class="section-subtitle">เครื่องมือ AI ครบครันที่ช่วยให้การตัดต่อวิดีโอและภาพยนตร์ เป็นเรื่องง่ายกว่าที่เคย</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card feature-card-large" id="feat-1">
+          <div class="feature-icon"><i data-lucide='clapperboard'></i></div>
+          <h3>Auto-Cut AI</h3>
+          <p>ตัดต่อวิดีโออัตโนมัติ AI วิเคราะห์เนื้อหา จังหวะ และอารมณ์ เพื่อเลือกช็อตที่ดีที่สุดโดยอัตโนมัติ</p>
+          <div class="feature-demo">
+            <div class="demo-bar-group">
+              <div class="demo-bar-item">
+                <span>วิเคราะห์ฉาก</span>
+                <div class="demo-bar"><div class="demo-fill" style="--w:92%"></div></div>
+                <span>92%</span>
+              </div>
+              <div class="demo-bar-item">
+                <span>เลือก Best Shot</span>
+                <div class="demo-bar"><div class="demo-fill" style="--w:87%"></div></div>
+                <span>87%</span>
+              </div>
+              <div class="demo-bar-item">
+                <span>จัดลำดับฉาก</span>
+                <div class="demo-bar"><div class="demo-fill" style="--w:95%"></div></div>
+                <span>95%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="feature-card" id="feat-2">
+          <div class="feature-icon"><i data-lucide='palette'></i></div>
+          <h3>Color Grading AI</h3>
+          <p>ปรับสีภาพยนตร์อัตโนมัติ ด้วย AI ที่เรียนรู้จากหนังฮอลลีวูด</p>
+          <div class="color-swatches">
+            <div class="swatch" style="background:linear-gradient(135deg,#1a0a2e,#6b2fa0)">Noir</div>
+            <div class="swatch" style="background:linear-gradient(135deg,#0d2137,#2d7dd2)">Cinematic</div>
+            <div class="swatch" style="background:linear-gradient(135deg,#2d0a0a,#c0392b)">Drama</div>
+            <div class="swatch" style="background:linear-gradient(135deg,#0a2d1a,#27ae60)">Nature</div>
+          </div>
+        </div>
+        <div class="feature-card" id="feat-3">
+          <div class="feature-icon"><i data-lucide='volume-2'></i></div>
+          <h3>AI Sound Design</h3>
+          <p>สร้างและปรับแต่งเสียงประกอบอัตโนมัติ รวมถึง Noise Reduction ระดับ Studio</p>
+          <div class="waveform-demo">
+            <div class="wave-bar" style="--h:40%"></div>
+            <div class="wave-bar" style="--h:70%"></div>
+            <div class="wave-bar" style="--h:55%"></div>
+            <div class="wave-bar" style="--h:90%"></div>
+            <div class="wave-bar" style="--h:65%"></div>
+            <div class="wave-bar" style="--h:45%"></div>
+            <div class="wave-bar" style="--h:80%"></div>
+            <div class="wave-bar" style="--h:60%"></div>
+            <div class="wave-bar" style="--h:75%"></div>
+            <div class="wave-bar" style="--h:50%"></div>
+            <div class="wave-bar" style="--h:85%"></div>
+            <div class="wave-bar" style="--h:40%"></div>
+          </div>
+        </div>
+        <div class="feature-card" id="feat-4">
+          <div class="feature-icon"><i data-lucide='pen-tool'></i></div>
+          <h3>Script-to-Video</h3>
+          <p>พิมพ์บทภาพยนตร์ AI สร้างวิดีโอฉบับร่างให้อัตโนมัติ พร้อม Storyboard</p>
+        </div>
+        <div class="feature-card" id="feat-5">
+          <div class="feature-icon"><i data-lucide='globe'></i></div>
+          <h3>Subtitle AI</h3>
+          <p>แปลงเสียงเป็นคำบรรยายในกว่า 50 ภาษา พร้อมจัดตำแหน่งอัตโนมัติ</p>
+        </div>
+        <div class="feature-card feature-card-large" id="feat-6">
+          <div class="feature-icon"><i data-lucide='zap'></i></div>
+          <h3>Real-Time Render</h3>
+          <p>เรนเดอร์วิดีโอ 4K/8K แบบ Real-time ด้วย GPU Cloud ของเรา เร็วกว่า Local Rendering ถึง 10 เท่า</p>
+          <div class="render-demo">
+            <div class="render-stat">
+              <span class="render-num">8K</span>
+              <span class="render-label">Resolution</span>
+            </div>
+            <div class="render-stat">
+              <span class="render-num">10x</span>
+              <span class="render-label">Faster</span>
+            </div>
+            <div class="render-stat">
+              <span class="render-num">GPU</span>
+              <span class="render-label">Cloud Power</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-it-works" id="how-it-works">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-badge">วิธีใช้งาน</div>
+        <h2 class="section-title">เริ่มต้นง่าย<br /><span class="gradient-text">ใน 3 ขั้นตอน</span></h2>
+      </div>
+      <div class="steps">
+        <div class="step" id="step-1">
+          <div class="step-number">01</div>
+          <div class="step-icon-big"><i data-lucide='upload'></i></div>
+          <h3>อัปโหลดวิดีโอ</h3>
+          <p>อัปโหลดไฟล์วิดีโอจากอุปกรณ์ของคุณ รองรับทุกฟอร์แมต MP4, MOV, AVI และอื่นๆ</p>
+        </div>
+        <div class="step-connector">
+          <div class="connector-line"></div>
+          <div class="connector-arrow"><i data-lucide='arrow-right'></i></div>
+        </div>
+        <div class="step" id="step-2">
+          <div class="step-number">02</div>
+          <div class="step-icon-big"><i data-lucide='bot'></i></div>
+          <h3>AI วิเคราะห์และแนะนำ</h3>
+          <p>ปัญญาประดิษฐ์วิเคราะห์เนื้อหา แนะนำการตัด การใส่เอฟเฟกต์ และดนตรีประกอบ</p>
+        </div>
+        <div class="step-connector">
+          <div class="connector-line"></div>
+          <div class="connector-arrow"><i data-lucide='arrow-right'></i></div>
+        </div>
+        <div class="step" id="step-3">
+          <div class="step-number">03</div>
+          <div class="step-icon-big"><i data-lucide='share-2'></i></div>
+          <h3>ส่งออกและแชร์</h3>
+          <p>ส่งออกวิดีโอคุณภาพสูงในทุกรูปแบบ และแชร์ไปยัง YouTube, TikTok, Instagram ได้ทันที</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="showcase" id="showcase">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-badge">ผลงาน</div>
+        <h2 class="section-title">ผลงานจากผู้ใช้จริง<br /><span class="gradient-text">สร้างด้วย CineAI</span></h2>
+      </div>
+      <div class="showcase-grid">
+        <div class="showcase-item showcase-item-large" id="showcase-1">
+          <div class="showcase-thumb" style="background:linear-gradient(135deg,#1a0a2e 0%,#4a1a6a 50%,#c084fc 100%)">
+            <div class="play-btn" id="play-1">&#9654;</div>
+            <div class="showcase-info">
+              <span class="showcase-genre">ภาพยนตร์สั้น</span>
+              <h4>The Last Signal</h4>
+              <p>ตัดต่อด้วย Auto-Cut AI + Cinematic Color</p>
+            </div>
+          </div>
+        </div>
+        <div class="showcase-item" id="showcase-2">
+          <div class="showcase-thumb" style="background:linear-gradient(135deg,#0d1b2a 0%,#1b4f72 50%,#48cae4 100%)">
+            <div class="play-btn" id="play-2">&#9654;</div>
+            <div class="showcase-info"><span class="showcase-genre">โฆษณา</span><h4>Urban Pulse</h4></div>
+          </div>
+        </div>
+        <div class="showcase-item" id="showcase-3">
+          <div class="showcase-thumb" style="background:linear-gradient(135deg,#1a0000 0%,#7b1d1d 50%,#f97316 100%)">
+            <div class="play-btn" id="play-3">&#9654;</div>
+            <div class="showcase-info"><span class="showcase-genre">Music Video</span><h4>Fire &amp; Ice</h4></div>
+          </div>
+        </div>
+        <div class="showcase-item" id="showcase-4">
+          <div class="showcase-thumb" style="background:linear-gradient(135deg,#001a0d 0%,#145a32 50%,#52be80 100%)">
+            <div class="play-btn" id="play-4">&#9654;</div>
+            <div class="showcase-info"><span class="showcase-genre">สารคดี</span><h4>Deep Ocean</h4></div>
+          </div>
+        </div>
+        <!-- ===================================================
+             วิธีใส่วิดีโอ:
+             - ไฟล์ปกติ (MP4):   data-video="videos/myvideo.mp4"   หรือ  data-video="https://cdn.example.com/video.mp4"
+             - YouTube:          data-video="https://youtu.be/VIDEO_ID"
+             - poster คือรูป thumbnail ที่แสดงแทน (ถ้าไม่มีก็ลบ attribute ทิ้งได้)
+             =================================================== -->
+        <div class="showcase-item" id="showcase-5">
+          <div class="showcase-thumb video-card"
+               data-video="videos/work1.mp4"
+               data-title="ผลงานที่ 1"
+               style="background:linear-gradient(135deg,#0d1117 0%,#1a0a2e 50%,#2d1b4e 100%)">
+            <div class="video-poster-overlay">
+              <div class="video-play-circle">
+                <span>&#9654;</span>
+              </div>
+            </div>
+            <div class="showcase-info"><span class="showcase-genre">ผลงานทีม</span><h4>ผลงานที่ 1</h4></div>
+          </div>
+        </div>
+        <div class="showcase-item" id="showcase-6">
+          <div class="showcase-thumb video-card"
+               data-video="videos/work2.mp4"
+               data-title="ผลงานที่ 2"
+               style="background:linear-gradient(135deg,#0d1b2a 0%,#0c3547 50%,#0e5f78 100%)">
+            <div class="video-poster-overlay">
+              <div class="video-play-circle"><span>&#9654;</span></div>
+            </div>
+            <div class="showcase-info"><span class="showcase-genre">ผลงานทีม</span><h4>ผลงานที่ 2</h4></div>
+          </div>
+        </div>
+        <div class="showcase-item" id="showcase-7">
+          <div class="showcase-thumb video-card"
+               data-video="videos/work3.mp4"
+               data-title="ผลงานที่ 3"
+               style="background:linear-gradient(135deg,#1a0a00 0%,#4a1e00 50%,#7c3400 100%)">
+            <div class="video-poster-overlay">
+              <div class="video-play-circle"><span>&#9654;</span></div>
+            </div>
+            <div class="showcase-info"><span class="showcase-genre">ผลงานทีม</span><h4>ผลงานที่ 3</h4></div>
+          </div>
+        </div>
+        <div class="showcase-item" id="showcase-8">
+          <div class="showcase-thumb video-card"
+               data-video="videos/work4.mp4"
+               data-title="ผลงานที่ 4"
+               style="background:linear-gradient(135deg,#001a12 0%,#004d30 50%,#006640 100%)">
+            <div class="video-poster-overlay">
+              <div class="video-play-circle"><span>&#9654;</span></div>
+            </div>
+            <div class="showcase-info"><span class="showcase-genre">ผลงานทีม</span><h4>ผลงานที่ 4</h4></div>
+          </div>
+        </div>
+        <div class="showcase-item" id="showcase-9">
+          <div class="showcase-thumb video-card"
+               data-video="videos/work5.mp4"
+               data-title="ผลงานที่ 5"
+               style="background:linear-gradient(135deg,#1a001a 0%,#4a0050 50%,#7b006a 100%)">
+            <div class="video-poster-overlay">
+              <div class="video-play-circle"><span>&#9654;</span></div>
+            </div>
+            <div class="showcase-info"><span class="showcase-genre">ผลงานทีม</span><h4>ผลงานที่ 5</h4></div>
+          </div>
+        </div>
+        <div class="showcase-item" id="showcase-10">
+          <div class="showcase-thumb video-card"
+               data-video="videos/work6.mp4"
+               data-title="ผลงานที่ 6"
+               style="background:linear-gradient(135deg,#1a1a00 0%,#404000 50%,#5a5a00 100%)">
+            <div class="video-poster-overlay">
+              <div class="video-play-circle"><span>&#9654;</span></div>
+            </div>
+            <div class="showcase-info"><span class="showcase-genre">ผลงานทีม</span><h4>ผลงานที่ 6</h4></div>
+          </div>
+        </div>
+      </div>
+
+  <section class="testimonials" id="testimonials">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-badge">รีวิวจากผู้ใช้</div>
+        <h2 class="section-title">ผู้ใช้พูดว่า<br /><span class="gradient-text">อย่างไร</span></h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card" id="test-1">
+          <div class="testimonial-stars"><i data-lucide='star'></i><i data-lucide='star'></i><i data-lucide='star'></i><i data-lucide='star'></i><i data-lucide='star'></i></div>
+          <p>"CineAI เปลี่ยนชีวิตผม ตัดต่อหนังสั้นที่ปกติใช้เวลา 3 วัน เหลือแค่ 2 ชั่วโมง คุณภาพเทียบเท่าหนัง Netflix เลย!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">&#129489;&#8205;&#128187;</div>
+            <div>
+              <strong>สมชาย วิชัยกุล</strong>
+              <span>Indie Filmmaker, Bangkok</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card" id="test-2">
+          <div class="testimonial-stars"><i data-lucide='star'></i><i data-lucide='star'></i><i data-lucide='star'></i><i data-lucide='star'></i><i data-lucide='star'></i></div>
+          <p>"ฟีเจอร์ Color Grading AI ทำให้วิดีโอโฆษณาของฉันดูเป็นมืออาชีพมาก ลูกค้าประทับใจมาก!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">&#128105;&#8205;<i data-lucide='palette'></i></div>
+            <div>
+              <strong>นิภา ศรีสุวรรณ</strong>
+              <span>Creative Director</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card" id="test-3">
+          <div class="testimonial-stars"><i data-lucide='star'></i><i data-lucide='star'></i><i data-lucide='star'></i><i data-lucide='star'></i><i data-lucide='star'></i></div>
+          <p>"Script-to-Video ทำให้ฉันสร้าง prototype หนังได้ภายในวันเดียว ประหยัดงบ pre-production ไปได้มาก"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar"><i data-lucide='clapperboard'></i></div>
+            <div>
+              <strong>ธนพล รักชาติ</strong>
+              <span>Film Producer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing" id="pricing">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-badge">ราคา</div>
+        <h2 class="section-title">เลือกแผนที่<br /><span class="gradient-text">เหมาะกับคุณ</span></h2>
+        <p class="section-subtitle">ไม่มีค่าใช้จ่ายแอบแฝง ยกเลิกได้ทุกเมื่อ</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card" id="plan-free">
+          <div class="plan-name">Starter</div>
+          <div class="plan-price"><span class="price-amount">ฟรี</span></div>
+          <p class="plan-desc">เหมาะสำหรับผู้เริ่มต้น</p>
+          <ul class="plan-features">
+            <li>&#10003; วิดีโอได้ 5 คลิปต่อเดือน</li>
+            <li>&#10003; ส่งออก 1080p</li>
+            <li>&#10003; ฟีเจอร์ Auto-Cut AI</li>
+            <li>&#10003; คำบรรยายอัตโนมัติ</li>
+            <li class="plan-feature-off">&#10007; Color Grading AI</li>
+            <li class="plan-feature-off">&#10007; Real-Time Render</li>
+          </ul>
+          <a href="#" class="btn-plan" id="plan-free-btn">เริ่มใช้ฟรี</a>
+        </div>
+        <div class="pricing-card pricing-card-featured" id="plan-pro">
+          <div class="plan-badge-top">ยอดนิยม</div>
+          <div class="plan-name">Pro</div>
+          <div class="plan-price">
+            <span class="price-currency">&#3647;</span>
+            <span class="price-amount">990</span>
+            <span class="price-period">/เดือน</span>
+          </div>
+          <p class="plan-desc">สำหรับนักสร้างสรรค์มืออาชีพ</p>
+          <ul class="plan-features">
+            <li>&#10003; วิดีโอไม่จำกัด</li>
+            <li>&#10003; ส่งออก 4K</li>
+            <li>&#10003; ฟีเจอร์ AI ครบทุกอย่าง</li>
+            <li>&#10003; Color Grading AI</li>
+            <li>&#10003; Real-Time Cloud Render</li>
+            <li>&#10003; AI Sound Design</li>
+          </ul>
+          <a href="#" class="btn-plan btn-plan-featured" id="plan-pro-btn">เลือกแผน Pro</a>
+        </div>
+        <div class="pricing-card" id="plan-studio">
+          <div class="plan-name">Studio</div>
+          <div class="plan-price">
+            <span class="price-currency">&#3647;</span>
+            <span class="price-amount">3,490</span>
+            <span class="price-period">/เดือน</span>
+          </div>
+          <p class="plan-desc">สำหรับสตูดิโอและทีมงาน</p>
+          <ul class="plan-features">
+            <li>&#10003; ทุกอย่างใน Pro</li>
+            <li>&#10003; ส่งออก 8K HDR</li>
+            <li>&#10003; สมาชิกสูงสุด 20 คน</li>
+            <li>&#10003; Script-to-Video AI</li>
+            <li>&#10003; Priority Support 24/7</li>
+            <li>&#10003; Custom Brand Kit</li>
+          </ul>
+          <a href="#" class="btn-plan" id="plan-studio-btn">ติดต่อทีมงาน</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICE SECTION ========== -->
+  <section class="service-section" id="service">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-badge">บริการของเรา</div>
+        <h2 class="section-title">รับตัดต่อวิดีโอ<br /><span class="gradient-text">ด้วย AI ระดับมืออาชีพ</span></h2>
+        <p class="section-subtitle">ทีมงานมืออาชีพพร้อมบริการตัดต่อวิดีโอให้คุณ ด้วยเทคโนโลยี AI ที่ทันสมัย ส่งงานตรงเวลา คุณภาพระดับ Studio</p>
+      </div>
+      <div class="service-grid">
+        <div class="service-card" id="svc-1">
+          <div class="service-icon-wrap">
+            <div class="service-icon"><i data-lucide='clapperboard'></i></div>
+          </div>
+          <h3>ตัดต่อวิดีโอทั่วไป</h3>
+          <p>ตัดต่อวิดีโอทุกประเภท ไม่ว่าจะเป็นวิดีโอโปรโมต, Vlog, Content Social Media หรือวิดีโอองค์กร</p>
+          <ul class="service-list">
+            <li>&#10003; ส่งงานภายใน 24-48 ชม.</li>
+            <li>&#10003; แก้ไขได้ไม่จำกัด</li>
+            <li>&#10003; รองรับทุกแพลตฟอร์ม</li>
+          </ul>
+        </div>
+        <div class="service-card service-card-featured" id="svc-2">
+          <div class="service-popular-badge"><i data-lucide='sparkles'></i> แนะนำ</div>
+          <div class="service-icon-wrap">
+            <div class="service-icon"><i data-lucide='film'></i></div>
+          </div>
+          <h3>ตัดต่อภาพยนตร์ &amp; หนังสั้น</h3>
+          <p>ตัดต่อหนังสั้น, Short Film, Music Video ด้วย Color Grade สไตล์ Cinematic และ Sound Design ระดับ Studio</p>
+          <ul class="service-list">
+            <li>&#10003; Cinematic Color Grading</li>
+            <li>&#10003; Professional Sound Mix</li>
+            <li>&#10003; Visual Effects &amp; Motion Graphics</li>
+          </ul>
+        </div>
+        <div class="service-card" id="svc-3">
+          <div class="service-icon-wrap">
+            <div class="service-icon">&#128247;</div>
+          </div>
+          <h3>วิดีโอโฆษณา &amp; Commercial</h3>
+          <p>ผลิตวิดีโอโฆษณาสินค้า, Presentation, Corporate Video ที่ดึงดูดและสื่อสารแบรนด์ได้อย่างมีประสิทธิภาพ</p>
+          <ul class="service-list">
+            <li>&#10003; Brand Identity Matching</li>
+            <li>&#10003; Subtitle &amp; Caption AI</li>
+            <li>&#10003; ส่ง Files ทุกรูปแบบ</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-contact-bar">
+        <div class="service-contact-info">
+          <span class="contact-icon"><i data-lucide='globe'></i></span>
+          <div>
+            <span class="contact-label">เว็บไซต์</span>
+            <a href="https://signmanstudio.com" target="_blank" class="contact-value">signmanstudio.com</a>
+          </div>
+        </div>
+        <div class="service-contact-info">
+          <span class="contact-icon">&#128172;</span>
+          <div>
+            <span class="contact-label">ติดต่อสอบถาม</span>
+            <a href="https://signmanstudio.com" target="_blank" class="contact-value">ส่งข้อความหาเรา</a>
+          </div>
+        </div>
+        <a href="#showcase" class="btn-primary" id="btn-see-portfolio">
+          <span>ดูผลงานของทีม</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="cta-section" id="cta-section">
+    <div class="cta-orbs">
+      <div class="cta-orb cta-orb-1"></div>
+      <div class="cta-orb cta-orb-2"></div>
+    </div>
+    <div class="section-container">
+      <div class="cta-content">
+        <h2 class="cta-title">พร้อมสร้างสรรค์<br /><span class="gradient-text">ผลงานระดับมืออาชีพ?</span></h2>
+        <p class="cta-subtitle">เริ่มต้นฟรีวันนี้ ไม่ต้องใส่บัตรเครดิต</p>
+        <a href="#pricing" class="btn-primary btn-large" id="btn-cta-bottom">
+          <span>เริ่มใช้ CineAI ฟรี</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" id="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">
+          <span class="logo-icon"><i data-lucide='hexagon'></i></span>
+          <span>Cine<span class="accent">AI</span></span>
+        </a>
+        <p>แพลตฟอร์ม AI ตัดต่อวิดีโอและภาพยนตร์ระดับมืออาชีพ</p>
+        <div class="social-links">
+          <a href="#" class="social-link" id="social-fb" aria-label="Facebook">f</a>
+          <a href="#" class="social-link" id="social-ig" aria-label="Instagram">ig</a>
+          <a href="#" class="social-link" id="social-yt" aria-label="YouTube">&#9654;</a>
+          <a href="#" class="social-link" id="social-tw" aria-label="Twitter">X</a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>ผลิตภัณฑ์</h4>
+          <a href="#">ฟีเจอร์</a>
+          <a href="#">ราคา</a>
+          <a href="#">Enterprise</a>
+          <a href="#">Roadmap</a>
+        </div>
+        <div class="footer-col">
+          <h4>ทรัพยากร</h4>
+          <a href="#">บทช่วยสอน</a>
+          <a href="#">Blog</a>
+          <a href="#">API Docs</a>
+          <a href="#">Community</a>
+        </div>
+        <div class="footer-col">
+          <h4>บริษัท</h4>
+          <a href="#">เกี่ยวกับเรา</a>
+          <a href="#">ร่วมงานกับเรา</a>
+          <a href="#">ข่าวสาร</a>
+          <a href="#">ติดต่อ</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 CineAI. สงวนลิขสิทธิ์ทุกประการ</p>
+      <div class="footer-legal">
+        <a href="#">นโยบายความเป็นส่วนตัว</a>
+        <a href="#">เงื่อนไขการใช้งาน</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== VIDEO MODAL ========== -->
+  <div class="video-modal" id="videoModal" role="dialog" aria-modal="true">
+    <div class="video-modal-backdrop" id="videoModalBackdrop"></div>
+    <div class="video-modal-container">
+      <div class="video-modal-header">
+        <span class="video-modal-title" id="videoModalTitle">ผลงาน</span>
+        <button class="video-modal-close" id="videoModalClose" aria-label="ปิด">&#10005;</button>
+      </div>
+      <div class="video-modal-body" id="videoModalBody">
+        <!-- player injected here by JS -->
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>lucide.createIcons();</script>
+</body>
+</html>
+

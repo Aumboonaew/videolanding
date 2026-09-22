@@ -1,0 +1,255 @@
+﻿/* script.js - CineAI Landing Page Interactions */
+
+// ===== NAVBAR SCROLL =====
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// ===== HAMBURGER MENU =====
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('mobile-open');
+  if (navLinks.classList.contains('mobile-open')) {
+    navLinks.style.display = 'flex';
+    navLinks.style.flexDirection = 'column';
+    navLinks.style.position = 'absolute';
+    navLinks.style.top = '70px';
+    navLinks.style.left = '0';
+    navLinks.style.right = '0';
+    navLinks.style.background = 'rgba(3,7,18,0.97)';
+    navLinks.style.padding = '20px 24px';
+    navLinks.style.borderBottom = '1px solid rgba(255,255,255,0.08)';
+    navLinks.style.backdropFilter = 'blur(20px)';
+  } else {
+    navLinks.style.display = '';
+  }
+});
+
+// ===== SMOOTH SCROLL =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href === '#') return;
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (navLinks.classList.contains('mobile-open')) {
+        navLinks.classList.remove('mobile-open');
+        navLinks.style.display = '';
+      }
+    }
+  });
+});
+
+// ===== SCROLL REVEAL ANIMATION =====
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('revealed');
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+// Add reveal class and observe elements
+const revealEls = document.querySelectorAll('.feature-card, .step, .showcase-item, .testimonial-card, .pricing-card');
+revealEls.forEach((el, i) => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(30px)';
+  el.style.transition = `opacity 0.6s ease ${i * 0.08}s, transform 0.6s ease ${i * 0.08}s, border-color 0.3s ease, box-shadow 0.3s ease`;
+  observer.observe(el);
+});
+
+// Add revealed style dynamically
+const style = document.createElement('style');
+style.textContent = `.revealed { opacity: 1 !important; transform: translateY(0) !important; }`;
+document.head.appendChild(style);
+
+// ===== APPLY AI SUGGESTION BUTTON =====
+const applyBtn = document.getElementById('btn-apply-suggestion');
+if (applyBtn) {
+  applyBtn.addEventListener('click', () => {
+    applyBtn.textContent = 'กำลังใช้...';
+    applyBtn.style.opacity = '0.7';
+    setTimeout(() => {
+      applyBtn.textContent = 'สำเร็จ ✓';
+      applyBtn.style.background = 'linear-gradient(135deg, #059669, #10b981)';
+      setTimeout(() => {
+        applyBtn.textContent = 'ใช้งาน';
+        applyBtn.style.background = '';
+        applyBtn.style.opacity = '';
+      }, 2000);
+    }, 1000);
+  });
+}
+
+// ===== COUNTER ANIMATION =====
+function animateCounter(el, target, duration = 2000, suffix = '') {
+  const start = Date.now();
+  const startVal = 0;
+  const update = () => {
+    const elapsed = Date.now() - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = Math.floor(startVal + (target - startVal) * eased);
+    el.textContent = current.toLocaleString() + suffix;
+    if (progress < 1) requestAnimationFrame(update);
+    else el.textContent = target.toLocaleString() + suffix;
+  };
+  requestAnimationFrame(update);
+}
+
+// Observe stats
+const statsObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const nums = entry.target.querySelectorAll('.stat-number');
+      nums.forEach(num => {
+        const text = num.textContent;
+        if (text.includes('2M')) animateCounter(num, 2, 1500, 'M+');
+        if (text.includes('50M')) animateCounter(num, 50, 1500, 'M+');
+        if (text.includes('4.9')) {
+          num.style.transition = 'all 0.5s ease';
+          setTimeout(() => { num.textContent = '4.9 ★'; }, 500);
+        }
+      });
+      statsObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+const heroStats = document.querySelector('.hero-stats');
+if (heroStats) statsObs.observe(heroStats);
+
+// ===== PARALLAX FOR HERO ORBS =====
+document.addEventListener('mousemove', (e) => {
+  const x = (e.clientX / window.innerWidth - 0.5) * 20;
+  const y = (e.clientY / window.innerHeight - 0.5) * 20;
+  document.querySelectorAll('.hero-orb').forEach((orb, i) => {
+    const factor = (i + 1) * 0.5;
+    orb.style.transform = `translate(${x * factor}px, ${y * factor}px)`;
+  });
+});
+
+// ===== PLAY BUTTON CLICK =====
+document.querySelectorAll('.play-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const item = btn.closest('.showcase-item');
+    const thumb = item.querySelector('.showcase-thumb');
+    // Flash animation
+    thumb.style.transition = 'all 0.2s';
+    thumb.style.filter = 'brightness(1.3)';
+    setTimeout(() => { thumb.style.filter = ''; }, 300);
+    btn.textContent = '⏸';
+    setTimeout(() => { btn.textContent = '▶'; }, 2000);
+  });
+});
+
+// ===== PRICING HOVER GLOW =====
+document.querySelectorAll('.pricing-card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    card.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(124,58,237,0.1), rgba(13,17,23,0.8))`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.background = '';
+  });
+});
+
+console.log('%c CineAI Landing Page Loaded!', 'color: #a78bfa; font-size: 16px; font-weight: bold;');
+
+// ===== VIDEO MODAL SYSTEM =====
+// รองรับทั้ง: ไฟล์ MP4/WebM ปกติ และ YouTube
+const modal      = document.getElementById('videoModal');
+const modalBody  = document.getElementById('videoModalBody');
+const modalTitle = document.getElementById('videoModalTitle');
+const modalClose = document.getElementById('videoModalClose');
+const modalBg    = document.getElementById('videoModalBackdrop');
+
+function getYouTubeEmbedUrl(url) {
+  // รองรับ: youtu.be/ID, youtube.com/watch?v=ID, youtube.com/shorts/ID
+  const patterns = [
+    /youtu\.be\/([^?&]+)/,
+    /youtube\.com\/watch\?v=([^&]+)/,
+    /youtube\.com\/shorts\/([^?&]+)/,
+    /youtube\.com\/embed\/([^?&]+)/
+  ];
+  for (const p of patterns) {
+    const m = url.match(p);
+    if (m) return `https://www.youtube.com/embed/${m[1]}?autoplay=1&rel=0`;
+  }
+  return null;
+}
+
+function isVideoFile(url) {
+  return /\.(mp4|webm|ogg|mov|avi|mkv)(\?.*)?$/i.test(url);
+}
+
+function openVideoModal(videoSrc, title) {
+  modalTitle.textContent = title || 'ผลงาน';
+  modalBody.innerHTML = '';
+
+  const ytEmbed = getYouTubeEmbedUrl(videoSrc);
+
+  if (ytEmbed) {
+    // YouTube — ใช้ iframe
+    const iframe = document.createElement('iframe');
+    iframe.src = ytEmbed;
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+    modalBody.appendChild(iframe);
+  } else {
+    // ไฟล์วิดีโอปกติ — ใช้ HTML5 <video>
+    const video = document.createElement('video');
+    video.src = videoSrc;
+    video.controls = true;
+    video.autoplay = true;
+    video.style.width = '100%';
+    video.style.height = '100%';
+    video.style.background = '#000';
+    // รองรับหลาย format
+    const ext = videoSrc.split('.').pop().split('?')[0].toLowerCase();
+    const typeMap = { mp4: 'video/mp4', webm: 'video/webm', ogg: 'video/ogg', mov: 'video/mp4' };
+    if (typeMap[ext]) video.type = typeMap[ext];
+    modalBody.appendChild(video);
+  }
+
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeVideoModal() {
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+  // หยุดวิดีโอ / unload iframe
+  setTimeout(() => { modalBody.innerHTML = ''; }, 300);
+}
+
+// ผูก event กับ video-card ทุกอัน
+document.querySelectorAll('.video-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const src   = card.getAttribute('data-video');
+    const title = card.getAttribute('data-title') || 'ผลงาน';
+    if (!src || src === '#') {
+      alert('ยังไม่ได้ใส่ไฟล์วิดีโอ — กรุณาแก้ data-video ใน index.html');
+      return;
+    }
+    openVideoModal(src, title);
+  });
+});
+
+// ปิด modal
+modalClose.addEventListener('click', closeVideoModal);
+modalBg.addEventListener('click', closeVideoModal);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeVideoModal(); });
