@@ -1,5 +1,48 @@
 /* script.js - Signmanstudio Landing Page Interactions */
 
+// ===== AUTO VIDEO THUMBNAIL =====
+// ดึงเฟรมแรกของวิดีโอมาใช้เป็นปกการ์ดอัตโนมัติ
+function generateVideoThumbnail(card) {
+  const videoSrc = card.getAttribute('data-video');
+  if (!videoSrc || videoSrc.startsWith('http')) return; // ข้ามถ้าเป็น YouTube
+
+  const video = document.createElement('video');
+  video.src = videoSrc;
+  video.muted = true;
+  video.preload = 'metadata';
+  video.crossOrigin = 'anonymous';
+  video.currentTime = 0.5; // จับเฟรมที่ 0.5 วินาที
+
+  video.addEventListener('seeked', () => {
+    try {
+      const canvas = document.createElement('canvas');
+      canvas.width = video.videoWidth || 640;
+      canvas.height = video.videoHeight || 360;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+      const dataURL = canvas.toDataURL('image/jpeg', 0.8);
+      card.style.backgroundImage = `url("${dataURL}")`;
+      card.style.backgroundSize = 'cover';
+      card.style.backgroundPosition = 'center';
+      video.remove();
+    } catch(e) {
+      // CORS หรือ local file error — ปล่อยให้ใช้ gradient เดิม
+      video.remove();
+    }
+  });
+
+  video.addEventListener('error', () => { video.remove(); });
+  document.body.appendChild(video);
+}
+
+// รันกับทุก video-card ใน showcase
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.showcase-thumb.video-card').forEach(card => {
+    generateVideoThumbnail(card);
+  });
+});
+
+
 // ===== NAVBAR SCROLL =====
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
