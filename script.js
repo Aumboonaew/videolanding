@@ -17,7 +17,7 @@ function generateVideoThumbnail(card) {
   video.style.height = '100%';
   video.style.objectFit = 'cover';
   video.style.zIndex = '0';
-  video.style.opacity = '0.7'; // ให้เห็นสีพื้นหลังเดิมนิดๆ ให้ดูมีมิติ
+  video.style.opacity = '1'; // ให้หน้าปกแสดงชัดเจน 100% ไม่ติดสีพาสเทล
   video.style.transition = 'opacity 0.3s';
 
   // เลื่อนปุ่ม Play และข้อความให้อยู่บนสุด
