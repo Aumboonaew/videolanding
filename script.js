@@ -1,50 +1,8 @@
 /* script.js - Signmanstudio Landing Page Interactions */
 
-// ===== AUTO VIDEO THUMBNAIL =====
-// ดึงเฟรมแรกของวิดีโอมาใช้เป็นปกการ์ดอัตโนมัติ
-function generateVideoThumbnail(card) {
-  const videoSrc = card.getAttribute('data-video');
-  if (!videoSrc || videoSrc.startsWith('http')) return; // ข้ามถ้าเป็น YouTube
-
-  const video = document.createElement('video');
-  video.src = videoSrc + '#t=2.0'; // เลื่อนไปวินาทีที่ 2 เพื่อหลบฉากสีขาวตอนเริ่มคลิป
-  video.muted = true;
-  video.playsInline = true;
-  video.preload = 'metadata';
-  video.style.position = 'absolute';
-  video.style.inset = '0';
-  video.style.width = '100%';
-  video.style.height = '100%';
-  video.style.objectFit = 'cover';
-  video.style.zIndex = '0';
-  video.style.opacity = '1'; 
-  video.style.transition = 'opacity 0.3s';
-
-  // บังคับเลื่อนเฟรมเผื่อ Browser บางตัวไม่รองรับ #t=
-  video.addEventListener('loadedmetadata', () => {
-    video.currentTime = 2.0;
-  });
-
-  // เลื่อนปุ่ม Play และข้อความให้อยู่บนสุด
-  const overlay = card.querySelector('.video-poster-overlay');
-  if (overlay) overlay.style.zIndex = '2';
-  
-  const info = card.querySelector('.showcase-info');
-  if (info) {
-    info.style.position = 'relative';
-    info.style.zIndex = '2';
-  }
-
-  // เอาวิดีโอใส่เข้าไปในการ์ด
-  card.style.position = 'relative';
-  card.insertBefore(video, card.firstChild);
-}
-
-// รันกับทุก video-card ใน showcase
+// รันกับทุก video-card ใน showcase (ถ้ามี script อื่น)
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.showcase-thumb.video-card').forEach(card => {
-    generateVideoThumbnail(card);
-  });
+  // ไม่ต้องดึงปกจากวิดีโอแล้ว ใช้รูป JPG แทน
 });
 
 
