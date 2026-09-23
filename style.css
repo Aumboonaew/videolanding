@@ -322,3 +322,20 @@ h1,h2,h3,h4{font-family:var(--font-head);text-transform:uppercase;letter-spacing
   object-fit: cover;
   display: block;
 }
+
+/* ===== HERO BACKGROUND IMAGE ===== */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('hero-bg.jpg');
+  background-size: cover;
+  background-position: center top;
+  opacity: 0.18;
+  z-index: 0;
+  filter: saturate(0.7);
+}
