@@ -7,32 +7,32 @@ function generateVideoThumbnail(card) {
   if (!videoSrc || videoSrc.startsWith('http')) return; // ข้ามถ้าเป็น YouTube
 
   const video = document.createElement('video');
-  video.src = videoSrc;
+  video.src = videoSrc + '#t=0.5'; // Use media fragment to load specific frame
   video.muted = true;
+  video.playsInline = true;
   video.preload = 'metadata';
-  video.crossOrigin = 'anonymous';
-  video.currentTime = 0.5; // จับเฟรมที่ 0.5 วินาที
+  video.style.position = 'absolute';
+  video.style.inset = '0';
+  video.style.width = '100%';
+  video.style.height = '100%';
+  video.style.objectFit = 'cover';
+  video.style.zIndex = '0';
+  video.style.opacity = '0.7'; // ให้เห็นสีพื้นหลังเดิมนิดๆ ให้ดูมีมิติ
+  video.style.transition = 'opacity 0.3s';
 
-  video.addEventListener('seeked', () => {
-    try {
-      const canvas = document.createElement('canvas');
-      canvas.width = video.videoWidth || 640;
-      canvas.height = video.videoHeight || 360;
-      const ctx = canvas.getContext('2d');
-      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-      const dataURL = canvas.toDataURL('image/jpeg', 0.8);
-      card.style.backgroundImage = `url("${dataURL}")`;
-      card.style.backgroundSize = 'cover';
-      card.style.backgroundPosition = 'center';
-      video.remove();
-    } catch(e) {
-      // CORS หรือ local file error — ปล่อยให้ใช้ gradient เดิม
-      video.remove();
-    }
-  });
+  // เลื่อนปุ่ม Play และข้อความให้อยู่บนสุด
+  const overlay = card.querySelector('.video-poster-overlay');
+  if (overlay) overlay.style.zIndex = '2';
+  
+  const info = card.querySelector('.showcase-info');
+  if (info) {
+    info.style.position = 'relative';
+    info.style.zIndex = '2';
+  }
 
-  video.addEventListener('error', () => { video.remove(); });
-  document.body.appendChild(video);
+  // เอาวิดีโอใส่เข้าไปในการ์ด
+  card.style.position = 'relative';
+  card.insertBefore(video, card.firstChild);
 }
 
 // รันกับทุก video-card ใน showcase
