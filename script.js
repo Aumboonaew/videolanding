@@ -7,7 +7,7 @@ function generateVideoThumbnail(card) {
   if (!videoSrc || videoSrc.startsWith('http')) return; // ข้ามถ้าเป็น YouTube
 
   const video = document.createElement('video');
-  video.src = videoSrc + '#t=0.5'; // Use media fragment to load specific frame
+  video.src = videoSrc + '#t=2.0'; // เลื่อนไปวินาทีที่ 2 เพื่อหลบฉากสีขาวตอนเริ่มคลิป
   video.muted = true;
   video.playsInline = true;
   video.preload = 'metadata';
@@ -17,8 +17,13 @@ function generateVideoThumbnail(card) {
   video.style.height = '100%';
   video.style.objectFit = 'cover';
   video.style.zIndex = '0';
-  video.style.opacity = '1'; // ให้หน้าปกแสดงชัดเจน 100% ไม่ติดสีพาสเทล
+  video.style.opacity = '1'; 
   video.style.transition = 'opacity 0.3s';
+
+  // บังคับเลื่อนเฟรมเผื่อ Browser บางตัวไม่รองรับ #t=
+  video.addEventListener('loadedmetadata', () => {
+    video.currentTime = 2.0;
+  });
 
   // เลื่อนปุ่ม Play และข้อความให้อยู่บนสุด
   const overlay = card.querySelector('.video-poster-overlay');
